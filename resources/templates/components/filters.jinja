@@ -1,0 +1,14 @@
+<ul id="filters" class="filters" hx-target="this">
+    <li>
+        <a {% if filter == "all" %}class="selected"{% endif %}
+           href="" hx-get="/?filter=all" hx-push-url="true">All</a>
+    </li>
+    <li>
+        <a {% if filter == "active" %}class="selected"{% endif %}
+           href="" hx-get="/?filter=active" hx-push-url="true">Active</a>
+    </li>
+    <li>
+        <a {% if filter == "completed" %}class="selected"{% endif %}
+           href="" hx-get="/?filter=completed" hx-push-url="true">Completed</a>
+    </li>
+</ul>

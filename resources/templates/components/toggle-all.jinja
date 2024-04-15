@@ -1,0 +1,7 @@
+<div id="toggle-all-container" class="toggle-all-container" {% if oob %}hx-swap-oob="true"{% endif %}>
+    <input name="completed" type="checkbox"
+           id="toggle-all" class="toggle-all"
+           {%- if active_todo_count == 0 %}checked{% endif %}
+           hx-post="/todo/complete_all" hx-target="#main" hx-swap="none" />
+    <label for="toggle-all">Mark all as complete</label>
+</div>

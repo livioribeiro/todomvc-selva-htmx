@@ -1,0 +1,14 @@
+<footer id="footer" class="footer"
+        {% if oob %}hx-swap-oob="true"{% endif %}
+        {% if not todo_count %}style="display: none"{% endif %}>
+{% if todo_count %}
+    <span id="todo-count" class="todo-count">
+        <strong>{{ active_todo_count }}</strong>
+        item{% if active_todo_count != 1 %}s{% endif %} left
+    </span>
+    {% include "components/filters.jinja" %}
+    {% if completed_todo_count > 0 %}
+        <button class="clear-completed" hx-delete="/todo/completed" hx-swap="none">Clear completed</button>
+    {% endif %}
+{% endif %}
+</footer>

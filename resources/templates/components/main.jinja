@@ -1,0 +1,8 @@
+<main id="main" class="main" {% if oob %}hx-swap-oob="true"{% endif %}>
+    {% if todo_count %}
+        {% include "components/toggle-all.jinja" %}
+    {% endif %}
+    {% if todos %}
+        {% include "components/todo-list.jinja" %}
+    {% endif %}
+</main>

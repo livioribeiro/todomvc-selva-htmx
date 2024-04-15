@@ -1,0 +1,16 @@
+<li class="{% if item.is_completed %} completed{% endif %}"
+    data-id="{{ item.id }}"
+    _="on dblclick add .editing on me">
+    <div class="view">
+        <input name="completed" class="toggle" type="checkbox" {% if item.is_completed %}checked{% endif %}
+            hx-post="/todo/{{ item.id }}/complete" hx-target="#main" hx-swap="none"/>
+        <label>{{ item.title }}</label>
+        <button class="destroy" hx-delete="/todo/{{ item.id }}" hx-target="#main" hx-swap="none"></button>
+    </div>
+    <input name="title" class="edit" value="{{ item.title }}"
+           hx-put="/todo/{{ item.id }}"
+           hx-trigger="keyup[key == 'Enter']"
+           hx-target="previous label"
+           hx-swap="innerHTML"
+           _="on keyup[key is 'Escape'] or htmx:afterRequest remove .editing from <li[data-id='{{ item.id }}'] />" />
+</li>

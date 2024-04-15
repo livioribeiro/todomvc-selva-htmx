@@ -1,0 +1,6 @@
+<header id="header" class="header">
+    <h1>todos</h1>
+    <input id="new-todo" class="new-todo" name="title" placeholder="What needs to be done?" autofocus
+           hx-post="/todo" hx-target="#main"
+           hx-on:htmx:after-request="document.querySelector('#new-todo').value = ''" />
+</header>
